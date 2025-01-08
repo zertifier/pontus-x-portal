@@ -58,7 +58,12 @@ export default function Menu(): ReactElement {
   return (
     <nav className={styles.menu}>
       <Link href="/" className={styles.logo}>
-        <Logo />
+        <img
+          src="https://regenag-x.com/contentimage/slides/RegenAgNegre.png"
+          width="200px"
+          alt=""
+        />
+        {/*<Logo />*/}
       </Link>
 
       <ul className={styles.navigation}>

@@ -31,7 +31,12 @@ export default function PageHeader({
     <header className={styleClasses}>
       {isHome ? (
         <div className={styles.homeTitleContainer}>
-          <BrandLogo />
+          {/*<BrandLogo />*/}
+          <img
+            src="https://regenag-x.com/contentimage/slides/RegenAgNegre.png"
+            width="200px"
+            alt=""
+          />
           {description && (
             <Markdown text={description} className={styles.subtitle} />
           )}
