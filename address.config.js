@@ -2,7 +2,7 @@ const PONTUSX_ADDRESSES = require('./pontusxAddresses.json')
 
 module.exports = {
   whitelists: {
-    'nft.owner': [],
+    'nft.owner': ['0x58912A895849340fFA0FAb49f280f167c3d1371c'],
     'datatokens.address': []
   },
   featured: [
