@@ -1,7 +1,6 @@
 import { ReactElement } from 'react'
 import Link from 'next/link'
 import loadable from '@loadable/component'
-import Logo from '@shared/atoms/Logo'
 import Networks from './UserPreferences/Networks'
 import styles from './Menu.module.css'
 import { useRouter } from 'next/router'
@@ -13,6 +12,7 @@ import Button from '@components/@shared/atoms/Button'
 import UserPreferences from './UserPreferences'
 import Automation from './UserPreferences/Automation'
 import NetworkMenu from './NetworkMenu'
+
 const Wallet = loadable(() => import('./Wallet'))
 
 const cx = classNames.bind(styles)
@@ -60,10 +60,9 @@ export default function Menu(): ReactElement {
       <Link href="/" className={styles.logo}>
         <img
           src="https://regenag-x.com/contentimage/slides/RegenAgNegre.png"
-          width="200px"
+          style={{ maxWidth: '200px' }}
           alt=""
         />
-        {/*<Logo />*/}
       </Link>
 
       <ul className={styles.navigation}>

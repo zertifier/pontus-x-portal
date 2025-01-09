@@ -31,10 +31,9 @@ export default function PageHeader({
     <header className={styleClasses}>
       {isHome ? (
         <div className={styles.homeTitleContainer}>
-          {/*<BrandLogo />*/}
           <img
             src="https://regenag-x.com/contentimage/slides/RegenAgNegre.png"
-            width="200px"
+            style={{ maxWidth: '200px' }}
             alt=""
           />
           {description && (
