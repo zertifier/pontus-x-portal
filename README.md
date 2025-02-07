@@ -1,6 +1,6 @@
-[![banner](https://raw.githubusercontent.com/oceanprotocol/art/master/github/repo-banner%402x.png)](https://oceanprotocol.com)
+[![banner](https://regenag-x.com/contentimage/slides/RegenAgNegre.png)](https://pxmarket.zertifier.com)
 
-<h1 align="center">Ocean Marketplace</h1>
+<h1 align="center">RegenAg-X Marketplace</h1>
 
 [![Build Status](https://github.com/oceanprotocol/market/workflows/CI/badge.svg)](https://github.com/oceanprotocol/market/actions)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/c85f4d8b-95e1-4010-95a4-2bacd8b90981/deploy-status)](https://app.netlify.com/sites/market-oceanprotocol/deploys)
@@ -191,7 +191,8 @@ const query = gql`
 `
 
 function Component() {
-  const { data } = useQuery(query, {}, pollInterval: 5000 })
+  const { data } = useQuery(query, { pollInterval: 5000 })
+
   return <div>{data}</div>
 }
 ```
@@ -273,7 +274,7 @@ To start adding stories, create a `index.stories.tsx` inside the component's fol
 src
 └─── components
 │   └─── @shared
-│       └─── <your component>
+│       └─── &lt;your component&gt;
 │            │   index.tsx
 │            │   index.module.css
 │            │   <b>index.stories.tsx</b>
@@ -447,10 +448,6 @@ cookies.map((cookie) => {
 The privacy preference centre has two styling options `default` and `small`. The default view shows all of the customization options on a full-height side banner. When the `small` setting is used, a much smaller banner is shown which only reveals all of the customization options when the user clicks "Customize".
 
 The style can be changed by altering the `style` prop in the `PrivacyPreferenceCenter` component in `src/components/App.tsx`. For example:
-
-```Typescript
-<PrivacyPreferenceCenter style="small" />
-```
 
 ## 🏛 License
 
