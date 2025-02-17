@@ -48,7 +48,7 @@ Prerequisites:
 To start local development:
 
 ```bash
-git clone git@github.com:oceanprotocol/market.git
+git clone https://github.com/zertifier/pontus-x-portal.git
 cd market
 
 # when using nvm to manage Node.js versions
