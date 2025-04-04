@@ -45,7 +45,29 @@ const networksMetadata = [
         standard: ''
       }
     ]
-  }
+  },
+  {
+    chainId: 11155111,
+    networkId: 11155111,
+    name: 'Sepolia Testnet',
+    chain: 'Sepolia',
+    rpc: ['https://eth-sepolia.g.alchemy.com/v2/demo'],
+    faucets: [],
+    nativeCurrency: {
+      name: 'ETH',
+      symbol: 'ETH',
+      decimals: 18
+    },
+    infoURL: 'https://docs.oceanprotocol.com/discover/networks#sepolia',
+    shortName: 'Sepolia',
+    explorers: [
+      {
+        name: 'Sepolia Testnet Explorer',
+        url: 'https://sepolia.etherscan.io',
+        standard: ''
+      }
+    ]
+  },
 ]
 
 module.exports = {
