@@ -89,6 +89,9 @@ export default function PublishPage({
       const { erc721Address, datatokenAddress, txHash } =
         await createTokensAndPricing(values, accountIdToUse, config, nftFactory)
 
+      console.log('[create] Sent values:', values)
+      console.log('[create] Received:', { erc721Address, datatokenAddress, txHash })
+
       const isSuccess = Boolean(erc721Address && datatokenAddress && txHash)
       if (!isSuccess) throw new Error('No Token created. Please try again.')
 
@@ -108,6 +111,9 @@ export default function PublishPage({
       return { erc721Address, datatokenAddress }
     } catch (error) {
       LoggerInstance.error('[publish] error', error.message)
+
+      console.error('[create] Error creating tokens:', error)
+
       if (error.message.length > 65) {
         error.message = 'No Token created. Please try again.'
       }
@@ -131,6 +137,9 @@ export default function PublishPage({
     erc721Address: string,
     datatokenAddress: string
   ): Promise<{ ddo: DDO; ddoEncrypted: string }> {
+
+    console.log('[encrypt] Created DDO:', ddo)
+
     setFeedback((prevState) => ({
       ...prevState,
       '2': {
@@ -181,9 +190,15 @@ export default function PublishPage({
           status: 'success'
         }
       }))
+
+      console.log('[encrypt] Encrypted DDO:', ddoEncrypted)
+
       return { ddo, ddoEncrypted }
     } catch (error) {
       LoggerInstance.error('[publish] error', error.message)
+
+      console.error('[encrypt] Error during encryption:', error)
+
       setFeedback((prevState) => ({
         ...prevState,
         '2': {
@@ -203,6 +218,10 @@ export default function PublishPage({
     ddo: DDO,
     ddoEncrypted: string
   ): Promise<{ did: string }> {
+
+    console.log('[publish] Publishing DDO:', ddo)
+    console.log('[publish] With encrypted DDO:', ddoEncrypted)
+
     setFeedback((prevState) => ({
       ...prevState,
       '3': {
@@ -224,6 +243,9 @@ export default function PublishPage({
         newAbortController()
       )
       const tx = await res.wait()
+
+      console.log('[publish] Transaction response:', tx)
+
       if (!tx?.transactionHash)
         throw new Error(
           'Metadata could not be written into the NFT. Please try again.'
@@ -243,6 +265,9 @@ export default function PublishPage({
       return { did: ddo.id }
     } catch (error) {
       LoggerInstance.error('[publish] error', error.message)
+
+      console.error('[publish] Error writing metadata to NFT:', error)
+
       setFeedback((prevState) => ({
         ...prevState,
         '3': {
@@ -259,6 +284,7 @@ export default function PublishPage({
   // --------------------------------------------------
   async function handleSubmit(values: FormPublishData) {
     // Syncing variables with state, enabling retry of failed steps
+    console.log('[handleSubmit] Start publishing with values:', values)
     let _erc721Address = erc721Address
     let _datatokenAddress = datatokenAddress
     let _ddo = ddo
@@ -291,6 +317,8 @@ export default function PublishPage({
       setDid(did)
     }
   }
+
+  console.log('[handleSubmit] Completed. DID:', _did)
 
   return isInPurgatory && purgatoryData ? null : (
     <Formik
