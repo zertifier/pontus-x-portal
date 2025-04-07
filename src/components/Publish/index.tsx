@@ -315,10 +315,12 @@ export default function PublishPage({
       const { did } = await publish(values, _ddo, _ddoEncrypted)
       _did = did
       setDid(did)
+
+      console.log('[handleSubmit] Completed. DID:', _did)
+
     }
   }
 
-  console.log('[handleSubmit] Completed. DID:', _did)
 
   return isInPurgatory && purgatoryData ? null : (
     <Formik
