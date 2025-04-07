@@ -67,7 +67,7 @@ const chains = [
     providerUri: 'https://provider.test.pontus-x.eu',
     providerAddress: '0x9546d39CE3E48BC942f0be4AA9652cBe0Aff3592',
     metadataCacheUri: 'https://aquarius.pontus-x.eu',
-    nodeUri: 'https://rpc.test.pontus-x.eu',
+    nodeUri: 'https://ethereum-sepolia-rpc.publicnode.com',
     subgraphUri: 'https://subgraph.test.pontus-x.eu',
     explorerUri: 'https://sepolia.etherscan.io'
   },
